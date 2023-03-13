@@ -1,3 +1,5 @@
+//2번 문제
+
 package exam;
 
 import java.text.SimpleDateFormat;
@@ -34,7 +36,7 @@ public class Main1 {
 //리스트				
 			} else if (command.equals("postList")) {
 				System.out.println("번호 | 제목");
-				for (int i=array.size()-1; i>0; i--) {
+				for (int i=array.size()-1; i>=0; i--) {
 					System.out.println(array.get(i).번호 + "|"+array.get(i).제목);
 				}
 				continue;
@@ -48,14 +50,17 @@ public class Main1 {
 				System.out.println("제목 : "+b.제목);
 				System.out.println("내용 : "+b.내용);
 				
-				break;
+				continue;
 				
-			} else if (command.equals("delete")){
-				break;
+			} else if (command.startsWith("post delete")){
+				String a[] = command.split(" ");
+				board b = array.remove(Integer.parseInt(a[2]));
 				
-			} else if (command.equals("")){
-				break;
+				continue;
 				
+				
+			}else if( command.equals("q")){
+				break;
 			}else {
 				System.out.println("잘못된 입력");
 				continue;
@@ -69,14 +74,15 @@ public class Main1 {
 		String 날짜 = Util.날짜();
 		
 		array.add(new board("제목1","내용",날짜));
+		board.순서++;
 		array.get(0).번호=board.순서;
-		board.순서++;
 		array.add(new board("제목2","내용",날짜));
+		board.순서++;
 		array.get(1).번호=board.순서;
-		board.순서++;
 		array.add(new board("제목3","내용",날짜));
-		array.get(2).번호=board.순서;
 		board.순서++;
+		array.get(2).번호=board.순서;
+
 		
 	}
 

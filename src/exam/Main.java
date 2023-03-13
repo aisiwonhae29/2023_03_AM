@@ -1,3 +1,5 @@
+//1번 문제
+
 package exam;
 
 public class Main {
@@ -20,3 +22,4 @@ public class Main {
 		}
 	}
 }
+
